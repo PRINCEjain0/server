@@ -28,6 +28,18 @@ io.on("connection", (socket) => {
     socket.join(data);
     socket.emit("user joined", data);
   });
+  socket.on(
+    "drawing",
+    ({ roomId, prevX, prevY, x, y, brushColor, brushSize }) => {
+      socket
+        .to(roomId)
+        .emit("drawing", { prevX, prevY, x, y, brushColor, brushSize });
+    }
+  );
+
+  socket.on("clear-canvas", (roomId) => {
+    socket.to(roomId).emit("clear-canvas");
+  });
 });
 
 app.get("/", (req, res) => {
