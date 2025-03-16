@@ -23,8 +23,10 @@ io.on("connection", (socket) => {
   });
 
   socket.on("join", (data) => {
-    socket.join(data.roomId);
-    socket.emit("user joined", { data });
+    console.log(data);
+
+    socket.join(data);
+    socket.emit("user joined", data);
   });
 });
 
