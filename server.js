@@ -17,7 +17,6 @@ const io = new Server(server, {
 
 const wordSelect = 7;
 const wordGuess = 15;
-const showScores = 5;
 const maxRounds = 2;
 io.on("connection", (socket) => {
   console.log("user connected");
@@ -74,6 +73,11 @@ io.on("connection", (socket) => {
     const room = rooms[roomId];
     if (room) {
       const currentDrawer = room.users[room.currentDrawerIndex];
+      io.to(roomId).emit("message", {
+        message: `${currentDrawer.name} is selecting a word...`,
+        name: "System",
+      });
+
       io.to(roomId).emit("drawer-selected", {
         drawerId: currentDrawer.id,
         name: currentDrawer.name,
