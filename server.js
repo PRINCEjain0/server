@@ -16,10 +16,10 @@ const io = new Server(server, {
   },
 });
 
-const wordSelect = 2;
-const wordGuess = 15;
-const maxRounds = 1;
-const hintTime = 10;
+const wordSelect = 7;
+const wordGuess = 45;
+const maxRounds = 3;
+const hintTime = 20;
 
 const activeTimers = {};
 
