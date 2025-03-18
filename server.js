@@ -10,7 +10,7 @@ const points = {};
 const correctGuessers = {};
 const io = new Server(server, {
   cors: {
-    origin: "https://sketchrace.vercel.app/",
+    origin: "https://sketchrace.vercel.app",
     methods: ["GET", "POST"],
     credentials: true,
   },
